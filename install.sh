@@ -8,8 +8,6 @@ OS="$(uname -s)"
 install_mac() {
     echo "🍎 macOS detected"
 
-    if command -v brew >/dev/null && echo "Homebrew is found" || echo "Homebrew is missing. Please install it first"
-
     if ! command -v brew >/dev/null 2>&1; then
         echo "⚠️ Homebrew not found. Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
