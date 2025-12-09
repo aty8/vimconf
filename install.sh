@@ -20,13 +20,14 @@ install_mac() {
     fi
 
     echo "📦 Installing Neovim and dependencies via Homebrew..."
-    brew install neovim ripgrep pyright fd gdb lldb
+    brew install neovim ripgrep npm fd gdb lldb
+    sudo npm install -g pyright
 }
 
 install_linux() {
     echo "🐧 Linux detected"
 
-    DEPS="neovim ripgrep clangd pyright fd gdb lldb"
+    DEPS="neovim ripgrep clangd npm fd-find gdb lldb"
 
     if command -v apt >/dev/null 2>&1; then
         echo "Using apt"
@@ -49,6 +50,8 @@ install_linux() {
         echo "❌ Unsupported Linux package manager"
         exit 1
     fi
+    sudo npm install -g pyright
+
 }
 
 case "$OS" in
