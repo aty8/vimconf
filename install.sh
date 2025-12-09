@@ -27,7 +27,7 @@ install_mac() {
 install_linux() {
     echo "🐧 Linux detected"
 
-    DEPS="neovim ripgrep clangd npm fd-find gdb lldb"
+    DEPS="ripgrep clangd npm fd-find gdb lldb"
 
     if command -v apt >/dev/null 2>&1; then
         echo "Using apt"
@@ -51,7 +51,10 @@ install_linux() {
         exit 1
     fi
     sudo npm install -g pyright
-
+    
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+    chmod +x nvim-linux-x86_64.appimage
+    sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 }
 
 case "$OS" in
