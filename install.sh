@@ -50,7 +50,14 @@ install_linux() {
         echo "❌ Unsupported Linux package manager"
         exit 1
     fi
-    sudo npm install -g pyright
+
+    if ! command -v nvm >/dev/null 2>&1; then
+        echo "Installing nvm"
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+        nvm install 14
+        nvm use 14
+    fi
+    node install -g pyright
     
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
     chmod +x nvim-linux-x86_64.appimage
