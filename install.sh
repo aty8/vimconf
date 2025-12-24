@@ -54,6 +54,7 @@ install_linux() {
     if ! command -v nvm >/dev/null 2>&1; then
         echo "Installing nvm"
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+        . $HOME/.nvm/nvm.sh
         nvm install 14
         nvm use 14
     fi
