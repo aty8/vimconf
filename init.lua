@@ -231,6 +231,20 @@ require("lazy").setup({
 },
 
 ------------------------------------------------------------
+-- DIFFS AND REVIEW
+------------------------------------------------------------
+{
+  "sindrets/diffview.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  cmd = {
+    "DiffviewOpen",
+    "DiffviewClose",
+    "DiffviewToggleFiles",
+    "DiffviewFileHistory",
+  },
+},
+
+------------------------------------------------------------
 -- DEBUGGER (DAP)
 ------------------------------------------------------------
 {
